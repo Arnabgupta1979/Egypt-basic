@@ -1,847 +1,856 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOCKUP: Seed Sector Regulatory Information Resource for Egypt - Homepage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* ----- Modern Reset & Variables ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            /* Brand Colors */
-            --egypt-red: #78A22F; /* Kept original green hue per request, renamed variable for clarity if needed later */
-            --egypt-red-dark: #5a7a23;
-            --agri-green: #2D7A3E;
-            --agri-green-light: #4CAF50;
-            
-            /* Modern Crisp Grays (Cooler Slate tone) */
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKUP: Seed Sector Regulatory Information Resource for Egypt - Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ----- Modern Reset & Variables ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Brand Colors */
+            --egypt-red: #78A22F; /* Kept original green hue per request, renamed variable for clarity if needed later */
+            --egypt-red-dark: #5a7a23;
+            --agri-green: #2D7A3E;
+            --agri-green-light: #4CAF50;
+            
+            /* Modern Crisp Grays (Cooler Slate tone) */
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
 
-            /* Modern Shadows for Depth */
-            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--gray-800);
-            background: var(--gray-50);
-            -webkit-font-smoothing: antialiased; /* Crisp text on Mac */
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* MOCKUP WATERMARK (Made slightly subtler) */
-        body::before {
-            content: 'MOCKUP - FOR DESIGN REVIEW';
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 5rem;
-            font-weight: 800;
-            color: rgba(0, 0, 0, 0.03);
-            z-index: 0;
-            pointer-events: none;
-            white-space: nowrap;
-        }
-        
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
+            /* Modern Shadows for Depth */
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--gray-50);
+            -webkit-font-smoothing: antialiased; /* Crisp text on Mac */
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* MOCKUP WATERMARK (Made slightly subtler) */
+        body::before {
+            content: 'MOCKUP - FOR DESIGN REVIEW';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
 
-        /* Utility: Section Padding */
-        section {
-            padding: 5rem 0;
-        }
-        
-        /* ----- Header ----- */
-        .header {
-            background: rgba(255, 255, 255, 0.95); /* Slight translucency */
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px); /* Modern glass effect */
-        }
-        
-        .header-top {
-            background: var(--egypt-red);
-            color: white;
-            padding: 0.75rem 0;
-        }
-        
-        .header-top-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-        }
-        
-        .logo-circle {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .logo-circle::before {
-            content: '🌾';
-            font-size: 1.75rem;
-        }
-        
-        .logo-text h1 {
-            font-size: 1.35rem;
-            color: white;
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        
-        .logo-text p {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0;
-            font-weight: 500;
-        }
-        
-        .header-actions {
-            display: flex;
-            gap: 0.75rem;
-        }
-        
-        .header-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-        
-        .header-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-        }
-        
-        /* Navigation */
-        .main-nav {
-            border-bottom: 1px solid var(--gray-200);
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 0.25rem;
-        }
-        
-        .nav-menu li a {
-            display: block;
-            padding: 1rem 1.25rem;
-            color: var(--gray-600);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease-in-out;
-            border-radius: 0.5rem;
-            margin: 0.25rem 0;
-        }
-        
-        .nav-menu li a:hover {
-            color: var(--egypt-red);
-            background: var(--gray-100);
-        }
-        
-        .nav-menu li a.active {
-            color: var(--egypt-red);
-            background: var(--gray-50);
-            font-weight: 700;
-        }
-        
-        /* ----- Hero Section (UPDATED) ----- */
-        .hero {
-            /* New Image Background */
-            background-image: url('https://www.reuters.com/resizer/v2/77B3BBYYD5KJNMXP3JST7BJE7E.jpg?auth=0b41a44b606cfa0a91d6bfca54d2b066a4d003fbf343369109d3a93036b6fc7f&width=1080&quality=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            /* Increased padding for modern, spacious look */
-            padding: 8rem 0;
-            position: relative;
+        /* Utility: Section Padding */
+        section {
+            padding: 5rem 0;
+        }
+        
+        /* ----- Header ----- */
+        .header {
+            background: rgba(255, 255, 255, 0.95); /* Slight translucency */
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px); /* Modern glass effect */
+        }
+        
+        .header-top {
+            background: var(--egypt-red);
+            color: white;
+            padding: 0.75rem 0;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            /* Added padding and overflow for the new image */
+            padding: 5px;
             overflow: hidden;
-        }
-        
-        /* Dark Overlay for text readability against the image */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            /* Gradient from dark bottom-left to semi-transparent top-right */
-            background: linear-gradient(to top right, rgba(15, 23, 42, 0.9), rgba(45, 122, 62, 0.5));
-            z-index: 0;
-        }
-        
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1; /* Ensure text is above overlay */
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-content .subtitle {
-            font-size: 1.75rem;
-            margin-bottom: 1.25rem;
-            color: rgba(255, 255, 255, 0.98);
-            font-weight: 600;
-        }
-        
-        .hero-content .description {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* ----- Common Section Headers ----- */
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.25rem;
-            color: var(--gray-900);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* ----- Quick Start Section (Modernized) ----- */
-        .quick-start {
-            background: var(--gray-50);
-        }
+        }
+        
+        /* Removed the previous emoji ::before rule */
 
-        .pathway-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Added style for the new image logo */
+        .logo-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
-        
-        /* Crisper Card Style */
-        .pathway-card {
-            background: white;
-            /* Removed default border, relying on shadow */
-            border-radius: 1rem;
-            padding: 2.5rem 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
-        }
+        
+        .logo-text h1 {
+            font-size: 1.35rem;
+            color: white;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        
+        .logo-text p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .header-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .header-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        /* Navigation */
+        .main-nav {
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+        }
+        
+        .nav-menu li a {
+            display: block;
+            padding: 1rem 1.25rem;
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease-in-out;
+            border-radius: 0.5rem;
+            margin: 0.25rem 0;
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--egypt-red);
+            background: var(--gray-100);
+        }
+        
+        .nav-menu li a.active {
+            color: var(--egypt-red);
+            background: var(--gray-50);
+            font-weight: 700;
+        }
+        
+        /* ----- Hero Section (UPDATED) ----- */
+        .hero {
+            /* New Image Background */
+            background-image: url('https://www.reuters.com/resizer/v2/77B3BBYYD5KJNMXP3JST7BJE7E.jpg?auth=0b41a44b606cfa0a91d6bfca54d2b066a4d003fbf343369109d3a93036b6fc7f&width=1080&quality=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            /* Increased padding for modern, spacious look */
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Dark Overlay for text readability against the image */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Gradient from dark bottom-left to semi-transparent top-right */
+            background: linear-gradient(to top right, rgba(15, 23, 42, 0.9), rgba(45, 122, 62, 0.5));
+            z-index: 0;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1; /* Ensure text is above overlay */
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            color: rgba(255, 255, 255, 0.98);
+            font-weight: 600;
+        }
+        
+        .hero-content .description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ----- Common Section Headers ----- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ----- Quick Start Section (Modernized) ----- */
+        .quick-start {
+            background: var(--gray-50);
+        }
 
-        /* Modern hover effect: Lift and deeper shadow */
-        .pathway-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Subtle accent on hover bottom */
-        .pathway-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--egypt-red);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease-in-out;
-        }
+        .pathway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* Crisper Card Style */
+        .pathway-card {
+            background: white;
+            /* Removed default border, relying on shadow */
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
 
-        .pathway-card:hover::after {
-            transform: scaleX(1);
-        }
-        
-        .pathway-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .pathway-card h3 {
-            color: var(--gray-900);
-            margin-bottom: 0.75rem;
-            font-size: 1.35rem;
-            font-weight: 700;
-        }
-        
-        .pathway-card p {
-            color: var(--gray-600);
-            margin-bottom: 1.75rem;
-            line-height: 1.5;
-        }
-        
-        .pathway-cta {
-            color: var(--egypt-red);
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        /* ----- Statistics Section (Crisper) ----- */
-        .statistics {
-            background: linear-gradient(135deg, var(--agri-green) 0%, var(--agri-green-light) 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Modern hover effect: Lift and deeper shadow */
+        .pathway-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Subtle accent on hover bottom */
+        .pathway-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--egypt-red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease-in-out;
+        }
 
-        /* Subtle pattern overlay for the stats bar */
-        .statistics::before {
-             content: '';
-             position: absolute;
-             inset: 0;
-             background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-             background-size: 20px 20px;
-             opacity: 0.3;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            /* Improved frosted glass effect */
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .stat-label {
-            font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 600;
-        }
-        
-        .stats-updated {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.875rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* ----- Featured Resources (Modernized) ----- */
-        .featured-resources {
-            background: white;
-        }
-        
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        /* Crisper Resource Cards */
-        .resource-card {
-            background: white;
-            border-radius: 1rem;
-            padding: 2.5rem;
-            /* Shadow define edges instead of border */
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease-in-out;
-            border: 1px solid var(--gray-100);
-        }
-        
-        .resource-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-5px);
-            border-color: transparent;
-        }
-        
-        .resource-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .resource-card h3 {
-            margin-bottom: 1rem;
-            color: var(--gray-900);
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        
-        .resource-card p {
-            color: var(--gray-600);
-            margin-bottom: 2rem;
-        }
-        
-        .resource-link {
-            color: var(--egypt-red);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            transition: gap 0.2s ease;
-        }
+        .pathway-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .pathway-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pathway-card h3 {
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+        
+        .pathway-card p {
+            color: var(--gray-600);
+            margin-bottom: 1.75rem;
+            line-height: 1.5;
+        }
+        
+        .pathway-cta {
+            color: var(--egypt-red);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        /* ----- Statistics Section (Crisper) ----- */
+        .statistics {
+            background: linear-gradient(135deg, var(--agri-green) 0%, var(--agri-green-light) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
 
-        .resource-link:hover {
-            gap: 0.5rem;
-        }
-        
-        /* ----- News Section ----- */
-        .news-section {
-            background: var(--gray-50);
-        }
-        
-        .section-header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid var(--gray-200);
-            padding-bottom: 1rem;
-        }
-        
-        .view-all {
-            color: var(--egypt-red);
-            font-weight: 700;
-            text-decoration: none;
-            margin-bottom: 0.25rem;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        
-        .news-card {
-            background: white;
-            border: 1px solid var(--gray-200);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .news-card:hover {
-            border-color: var(--egypt-red);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-        
-        .news-date {
-            color: var(--egypt-red);
-            font-size: 0.875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: block;
-            margin-bottom: 0.75rem;
-        }
-        
-        .news-card h3 {
-            margin-bottom: 1rem;
-            color: var(--gray-900);
-            font-size: 1.25rem;
-            line-height: 1.4;
-            font-weight: 700;
-        }
-        
-        .news-card p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-        }
-        
-        .read-more {
-            color: var(--gray-900);
-            font-weight: 700;
-            text-decoration: none;
-            transition: color 0.2s;
-            display: inline-flex;
-            align-items: center;
-        }
+        /* Subtle pattern overlay for the stats bar */
+        .statistics::before {
+             content: '';
+             position: absolute;
+             inset: 0;
+             background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+             background-size: 20px 20px;
+             opacity: 0.3;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            /* Improved frosted glass effect */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-label {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        .stats-updated {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ----- Featured Resources (Modernized) ----- */
+        .featured-resources {
+            background: white;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        /* Crisper Resource Cards */
+        .resource-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            /* Shadow define edges instead of border */
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease-in-out;
+            border: 1px solid var(--gray-100);
+        }
+        
+        .resource-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+        
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-card h3 {
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .resource-card p {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+        
+        .resource-link {
+            color: var(--egypt-red);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: gap 0.2s ease;
+        }
 
-        .read-more:hover {
-             color: var(--egypt-red);
-        }
+        .resource-link:hover {
+            gap: 0.5rem;
+        }
+        
+        /* ----- News Section ----- */
+        .news-section {
+            background: var(--gray-50);
+        }
+        
+        .section-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 1rem;
+        }
+        
+        .view-all {
+            color: var(--egypt-red);
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 0.25rem;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .news-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .news-card:hover {
+            border-color: var(--egypt-red);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .news-date {
+            color: var(--egypt-red);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        
+        .news-card h3 {
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+            font-size: 1.25rem;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+        
+        .news-card p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            color: var(--gray-900);
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
 
-        .read-more::after {
-            content: '→';
-            margin-left: 0.5rem;
-            transition: transform 0.2s;
-        }
-        .read-more:hover::after {
-            transform: translateX(4px);
-        }
-        
-        /* ----- Footer ----- */
-        .footer {
-            background: var(--gray-900);
-            color: var(--gray-300);
-            padding: 5rem 0 2rem;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-        
-        .footer-column h4 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.125rem;
-            font-weight: 700;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column a {
-            color: var(--gray-300);
-            text-decoration: none;
-            display: block;
-            padding: 0.6rem 0;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-        
-        .footer-column a:hover {
-            color: white;
-            transform: translateX(4px);
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid var(--gray-800);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--gray-600);
-            font-size: 0.875rem;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            section { padding: 3.5rem 0; }
-            .hero { padding: 5rem 0; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-content .subtitle { font-size: 1.35rem; }
-            .pathway-grid, .news-grid, .resources-grid { grid-template-columns: 1fr; }
-            .nav-menu { flex-wrap: wrap; }
-            body::before { font-size: 3rem; }
-            .logo-text h1 { font-size: 1.1rem; }
-            .logo-text p { display: none; }
-        }
-    </style>
+        .read-more:hover {
+             color: var(--egypt-red);
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .read-more:hover::after {
+            transform: translateX(4px);
+        }
+        
+        /* ----- Footer ----- */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column a {
+            color: var(--gray-300);
+            text-decoration: none;
+            display: block;
+            padding: 0.6rem 0;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            section { padding: 3.5rem 0; }
+            .hero { padding: 5rem 0; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content .subtitle { font-size: 1.35rem; }
+            .pathway-grid, .news-grid, .resources-grid { grid-template-columns: 1fr; }
+            .nav-menu { flex-wrap: wrap; }
+            body::before { font-size: 3rem; }
+            .logo-text h1 { font-size: 1.1rem; }
+            .logo-text p { display: none; }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-content">
-                    <div class="header-logo">
-                        <div class="logo-circle"></div>
-                        <div class="logo-text">
-                            <h1>Seed Sector Regulatory Information Resource for Egypt</h1>
-                            <p>Ministry of Agriculture and Land Reclamation</p>
+        <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="header-logo">
+                        <div class="logo-circle">
+                            <img src="https://moa.gov.eg/wwwroot/images/malr-logo-en.png" alt="Ministry of Agriculture and Land Reclamation Logo" class="logo-img">
                         </div>
-                    </div>
-                    <div class="header-actions">
-                        <button class="header-btn">🌐 العربية</button>
-                        <button class="header-btn">🔍 Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <nav class="main-nav">
-            <div class="container">
-                <ul class="nav-menu">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Get Started ▾</a></li>
-                    <li><a href="#">Regulations</a></li>
-                    <li><a href="#">Procedures</a></li>
-                    <li><a href="#">Institutions</a></li>
-                    <li><a href="#">Variety Catalogue</a></li>
-                    <li><a href="#">Resources</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+                        <div class="logo-text">
+                            <h1>Seed Sector Regulatory Information Resource for Egypt</h1>
+                            <p>Ministry of Agriculture and Land Reclamation</p>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="header-btn">🌐 العربية</button>
+                        <button class="header-btn">🔍 Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Get Started ▾</a></li>
+                    <li><a href="#">Regulations</a></li>
+                    <li><a href="#">Procedures</a></li>
+                    <li><a href="#">Institutions</a></li>
+                    <li><a href="#">Variety Catalogue</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Egypt's Seed Sector</h1>
-                <p class="subtitle">Your Gateway to Quality Agricultural Genetics</p>
-                <p class="description">Navigate regulations, procedures, and resources for plant variety protection, seed certification, and cross-border trade</p>
-            </div>
-        </div>
-    </section>
+        <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Egypt's Seed Sector</h1>
+                <p class="subtitle">Your Gateway to Quality Agricultural Genetics</p>
+                <p class="description">Navigate regulations, procedures, and resources for plant variety protection, seed certification, and cross-border trade</p>
+            </div>
+        </div>
+    </section>
 
-    <section class="quick-start">
-        <div class="container">
-            <div class="section-header">
-                <h2>Quick Start: I want to...</h2>
-                <p>Select your goal and we'll guide you through the process step-by-step</p>
-            </div>
-            
-            <div class="pathway-grid">
-                <div class="pathway-card">
-                    <div class="pathway-icon">🏢</div>
-                    <h3>Start a Seed Business</h3>
-                    <p>Company registration, licensing, and investment guidance</p>
-                    <span class="pathway-cta">Get Started →</span>
-                </div>
-                
-                <div class="pathway-card">
-                    <div class="pathway-icon">🌱</div>
-                    <h3>Produce Seed for Companies</h3>
-                    <p>Contract farming, certification, and quality requirements</p>
-                    <span class="pathway-cta">Get Started →</span>
-                </div>
-                
-                <div class="pathway-card">
-                    <div class="pathway-icon">🧬</div>
-                    <h3>Register a New Variety</h3>
-                    <p>DUS testing, VCU trials, and official release process</p>
-                    <span class="pathway-cta">Get Started →</span>
-                </div>
-                
-                <div class="pathway-card">
-                    <div class="pathway-icon">📦</div>
-                    <h3>Import or Export Seed</h3>
-                    <p>Permits, quarantine, documentation, and customs</p>
-                    <span class="pathway-cta">Get Started →</span>
-                </div>
-                
-                <div class="pathway-card">
-                    <div class="pathway-icon">🛡️</div>
-                    <h3>Protect My Variety (PVP)</h3>
-                    <p>Plant breeders' rights under UPOV 1991</p>
-                    <span class="pathway-cta">Get Started →</span>
-                </div>
-                
-                <div class="pathway-card">
-                    <div class="pathway-icon">🌾</div>
-                    <h3>Find Certified Seed</h3>
-                    <p>Browse varieties, locate dealers, verify quality</p>
-                    <span class="pathway-cta">Get Started →</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        <section class="quick-start">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Start: I want to...</h2>
+                <p>Select your goal and we'll guide you through the process step-by-step</p>
+            </div>
+            
+            <div class="pathway-grid">
+                <div class="pathway-card">
+                    <div class="pathway-icon">🏢</div>
+                    <h3>Start a Seed Business</h3>
+                    <p>Company registration, licensing, and investment guidance</p>
+                    <span class="pathway-cta">Get Started →</span>
+                </div>
+                
+                <div class="pathway-card">
+                    <div class="pathway-icon">🌱</div>
+                    <h3>Produce Seed for Companies</h3>
+                    <p>Contract farming, certification, and quality requirements</p>
+                    <span class="pathway-cta">Get Started →</span>
+                </div>
+                
+                <div class="pathway-card">
+                    <div class="pathway-icon">🧬</div>
+                    <h3>Register a New Variety</h3>
+                    <p>DUS testing, VCU trials, and official release process</p>
+                    <span class="pathway-cta">Get Started →</span>
+                </div>
+                
+                <div class="pathway-card">
+                    <div class="pathway-icon">📦</div>
+                    <h3>Import or Export Seed</h3>
+                    <p>Permits, quarantine, documentation, and customs</p>
+                    <span class="pathway-cta">Get Started →</span>
+                </div>
+                
+                <div class="pathway-card">
+                    <div class="pathway-icon">🛡️</div>
+                    <h3>Protect My Variety (PVP)</h3>
+                    <p>Plant breeders' rights under UPOV 1991</p>
+                    <span class="pathway-cta">Get Started →</span>
+                </div>
+                
+                <div class="pathway-card">
+                    <div class="pathway-icon">🌾</div>
+                    <h3>Find Certified Seed</h3>
+                    <p>Browse varieties, locate dealers, verify quality</p>
+                    <span class="pathway-cta">Get Started →</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="statistics">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">1,247</div>
-                    <div class="stat-label">Registered Varieties</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">143</div>
-                    <div class="stat-label">Protected Varieties</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">11,853</div>
-                    <div class="stat-label">Licensed Companies</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">COMESA Varieties</div>
-                </div>
-            </div>
-            <p class="stats-updated">Last Updated: January 6, 2026</p>
-        </div>
-    </section>
+        <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1,247</div>
+                    <div class="stat-label">Registered Varieties</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">143</div>
+                    <div class="stat-label">Protected Varieties</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">11,853</div>
+                    <div class="stat-label">Licensed Companies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">COMESA Varieties</div>
+                </div>
+            </div>
+            <p class="stats-updated">Last Updated: January 6, 2026</p>
+        </div>
+    </section>
 
-    <section class="featured-resources">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured Resources</h2>
-            </div>
-            
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="resource-icon">📜</div>
-                    <h3>Legal Framework</h3>
-                    <p>Agricultural Law 53/1966, IPR Law 82/2002, Investment Law 72/2017</p>
-                    <a href="#" class="resource-link">View All Laws →</a>
-                </div>
-                
-                <div class="resource-card">
-                    <div class="resource-icon">🏛️</div>
-                    <h3>Key Institutions</h3>
-                    <p>CASC, CAPQ, CASP, ARC, and National Gene Bank contacts</p>
-                    <a href="#" class="resource-link">View Directory →</a>
-                </div>
-                
-                <div class="resource-card">
-                    <div class="resource-icon">📄</div>
-                    <h3>Download Forms</h3>
-                    <p>Applications, checklists, and templates for all procedures</p>
-                    <a href="#" class="resource-link">Browse Documents →</a>
-                </div>
-                
-                <div class="resource-card">
-                    <div class="resource-icon">🌍</div>
-                    <h3>International Standards</h3>
-                    <p>UPOV, COMESA, OECD, ISTA, and IPPC compliance guides</p>
-                    <a href="#" class="resource-link">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <section class="featured-resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Resources</h2>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📜</div>
+                    <h3>Legal Framework</h3>
+                    <p>Agricultural Law 53/1966, IPR Law 82/2002, Investment Law 72/2017</p>
+                    <a href="#" class="resource-link">View All Laws →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🏛️</div>
+                    <h3>Key Institutions</h3>
+                    <p>CASC, CAPQ, CASP, ARC, and National Gene Bank contacts</p>
+                    <a href="#" class="resource-link">View Directory →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📄</div>
+                    <h3>Download Forms</h3>
+                    <p>Applications, checklists, and templates for all procedures</p>
+                    <a href="#" class="resource-link">Browse Documents →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🌍</div>
+                    <h3>International Standards</h3>
+                    <p>UPOV, COMESA, OECD, ISTA, and IPPC compliance guides</p>
+                    <a href="#" class="resource-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="news-section">
-        <div class="container">
-            <div class="section-header-flex">
-                <div class="section-header" style="text-align: left; margin: 0;">
-                    <h2>Latest News & Updates</h2>
-                </div>
-                <a href="#" class="view-all">View All →</a>
-            </div>
-            
-            <div class="news-grid">
-                <article class="news-card">
-                    <span class="news-date">January 3, 2026</span>
-                    <h3>CASC Annual Report 2025 Released</h3>
-                    <p>Comprehensive overview of seed certification activities, new variety registrations, and quality control initiatives.</p>
-                    <a href="#" class="read-more">Read More</a>
-                </article>
-                
-                <article class="news-card">
-                    <span class="news-date">December 28, 2025</span>
-                    <h3>Updated PVP Fee Schedule</h3>
-                    <p>New fee structure for plant variety protection applications effective January 1, 2026.</p>
-                    <a href="#" class="read-more">Read More</a>
-                </article>
-                
-                <article class="news-card">
-                    <span class="news-date">December 15, 2025</span>
-                    <h3>COMESA Variety Registration Guide</h3>
-                    <p>Step-by-step guide for Egyptian companies to register varieties on the COMESA catalogue.</p>
-                    <a href="#" class="read-more">Read More</a>
-                </article>
-            </div>
-        </div>
-    </section>
+        <section class="news-section">
+        <div class="container">
+            <div class="section-header-flex">
+                <div class="section-header" style="text-align: left; margin: 0;">
+                    <h2>Latest News & Updates</h2>
+                </div>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="news-grid">
+                <article class="news-card">
+                    <span class="news-date">January 3, 2026</span>
+                    <h3>CASC Annual Report 2025 Released</h3>
+                    <p>Comprehensive overview of seed certification activities, new variety registrations, and quality control initiatives.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+                
+                <article class="news-card">
+                    <span class="news-date">December 28, 2025</span>
+                    <h3>Updated PVP Fee Schedule</h3>
+                    <p>New fee structure for plant variety protection applications effective January 1, 2026.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+                
+                <article class="news-card">
+                    <span class="news-date">December 15, 2025</span>
+                    <h3>COMESA Variety Registration Guide</h3>
+                    <p>Step-by-step guide for Egyptian companies to register varieties on the COMESA catalogue.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>Ministry of Agriculture and Land Reclamation</h4>
-                    <p>1 Nady El Seid Street<br>Dokki, Cairo, Egypt</p>
-                    <p style="margin-top: 1rem;">Tel: +20 2 33373003<br>Email: info.malr@agr-egypt.gov.eg</p>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Regulations</a></li>
-                        <li><a href="#">Procedures</a></li>
-                        <li><a href="#">Institutions</a></li>
-                        <li><a href="#">Variety Catalogue</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Key Authorities</h4>
-                    <ul>
-                        <li><a href="#">CASC</a></li>
-                        <li><a href="#">CAPQ</a></li>
-                        <li><a href="#">CASP</a></li>
-                        <li><a href="#">ARC</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Downloads</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Feedback</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Ministry of Agriculture and Land Reclamation. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; opacity: 0.7;">Portal developed in collaboration with Wageningen University & Research</p>
-            </div>
-        </div>
-    </footer>
+        <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Ministry of Agriculture and Land Reclamation</h4>
+                    <p>1 Nady El Seid Street<br>Dokki, Cairo, Egypt</p>
+                    <p style="margin-top: 1rem;">Tel: +20 2 33373003<br>Email: info.malr@agr-egypt.gov.eg</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Regulations</a></li>
+                        <li><a href="#">Procedures</a></li>
+                        <li><a href="#">Institutions</a></li>
+                        <li><a href="#">Variety Catalogue</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Key Authorities</h4>
+                    <ul>
+                        <li><a href="#">CASC</a></li>
+                        <li><a href="#">CAPQ</a></li>
+                        <li><a href="#">CASP</a></li>
+                        <li><a href="#">ARC</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ministry of Agriculture and Land Reclamation. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; opacity: 0.7;">Portal developed in collaboration with Wageningen University & Research</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
