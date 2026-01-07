@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKUP: GIZA 171 Variety Detail - Egyptian Seed Sector Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --egypt-red: #C8102E;
+            --agri-green: #2D7A3E;
+            --success: #10B981;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+        
+        body::before {
+            content: 'MOCKUP';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            font-weight: 700;
+            color: rgba(200, 16, 46, 0.03);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--egypt-red);
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+        
+        .breadcrumb a {
+            color: var(--egypt-red);
+            text-decoration: none;
+        }
+        
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+        
+        /* Variety Header */
+        .variety-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .variety-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .variety-title h1 {
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        .variety-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+        
+        .variety-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-end;
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-badge.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        
+        .status-badge.warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: #F59E0B;
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gallery-main {
+            height: 300px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+        
+        .gallery-thumb {
+            height: 145px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .gallery-thumb:hover {
+            border-color: var(--egypt-red);
+        }
+        
+        /* Tabs */
+        .tabs {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .tabs-header {
+            display: flex;
+            border-bottom: 2px solid var(--gray-200);
+            background: var(--gray-50);
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray-600);
+            transition: all 0.2s;
+        }
+        
+        .tab-button:hover {
+            color: var(--egypt-red);
+            background: white;
+        }
+        
+        .tab-button.active {
+            color: var(--egypt-red);
+            border-bottom-color: var(--egypt-red);
+            background: white;
+        }
+        
+        .tab-content {
+            padding: 2rem;
+        }
+        
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-section h3 {
+            font-size: 1.125rem;
+            color: var(--egypt-red);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .info-row {
+            display: flex;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .info-label {
+            flex: 1;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+        
+        .info-value {
+            flex: 1;
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+        
+        /* Traits */
+        .traits-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .trait-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(45, 122, 62, 0.1);
+            color: var(--agri-green);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .sidebar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .sidebar-card h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .action-btn {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 0.875rem;
+        }
+        
+        .action-btn-primary {
+            background: var(--egypt-red);
+            color: white;
+        }
+        
+        .action-btn-primary:hover {
+            background: #A00D25;
+        }
+        
+        .action-btn-secondary {
+            background: white;
+            color: var(--egypt-red);
+            border: 2px solid var(--egypt-red);
+        }
+        
+        .related-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-700);
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s;
+        }
+        
+        .related-item:hover {
+            color: var(--egypt-red);
+            padding-left: 0.5rem;
+        }
+        
+        .rating {
+            text-align: center;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 0.5rem;
+        }
+        
+        .rating-stars {
+            font-size: 1.5rem;
+            color: #F59E0B;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        
+        .rating-count {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+        
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#">Home</a> › <a href="#">Variety Catalogue</a> › <a href="#">Cereals</a> › <a href="#">Wheat</a> › <strong>GIZA 171</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-layout">
+            <!-- Main Content -->
+            <div>
+                <!-- Variety Header -->
+                <div class="variety-header">
+                    <div class="variety-title">
+                        <div>
+                            <h1>GIZA 171</h1>
+                            <p class="variety-subtitle">Bread Wheat (Triticum aestivum)</p>
+                        </div>
+                        <div class="variety-badges">
+                            <span class="status-badge success">✓ Registered (2015)</span>
+                            <span class="status-badge success">✓ Seed Available</span>
+                            <span class="status-badge warning">✗ Not PVP Protected</span>
+                            <span class="status-badge warning">✗ Not COMESA Registered</span>
+                        </div>
+                    </div>
+
+                    <!-- Image Gallery -->
+                    <div class="image-gallery">
+                        <div class="gallery-main">🌾</div>
+                        <div class="gallery-thumb">🌱</div>
+                        <div class="gallery-thumb">🌾</div>
+                    </div>
+                </div>
+
+                <!-- Tabs Section -->
+                <div class="tabs">
+                    <div class="tabs-header">
+                        <button class="tab-button active">Overview</button>
+                        <button class="tab-button">Quality</button>
+                        <button class="tab-button">Where to Buy</button>
+                        <button class="tab-button">Performance</button>
+                        <button class="tab-button">Documents</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Basic Information -->
+                        <div class="info-section">
+                            <h3>Basic Information</h3>
+                            <div class="info-row">
+                                <span class="info-label">Registration No.:</span>
+                                <span class="info-value">WHT-2015-0034</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Breeder:</span>
+                                <span class="info-value">Field Crops Research Institute (ARC)</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Maintainer:</span>
+                                <span class="info-value">CASP</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Pedigree:</span>
+                                <span class="info-value">PASTOR//SITE/MO/3/CHEN/AEGILOPS SQUARROSA</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Registration Year:</span>
+                                <span class="info-value">2015</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Seed Classes Available:</span>
+                                <span class="info-value">Foundation, Registered, Certified</span>
+                            </div>
+                        </div>
+
+                        <!-- Agronomic Characteristics -->
+                        <div style="margin-top: 2rem;">
+                            <div class="info-section">
+                                <h3>Agronomic Characteristics</h3>
+                                <div class="info-grid">
+                                    <div>
+                                        <div class="info-row">
+                                            <span class="info-label">Maturity:</span>
+                                            <span class="info-value">145-155 days</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Plant Height:</span>
+                                            <span class="info-value">85-95 cm (Medium)</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Seeding Rate:</span>
+                                            <span class="info-value">60 kg/feddan</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="info-row">
+                                            <span class="info-label">Planting Season:</span>
+                                            <span class="info-value">Nov 15 - Dec 15</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Yield (irrigated):</span>
+                                            <span class="info-value">3.0-3.5 tons/feddan</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Yield (rainfed):</span>
+                                            <span class="info-value">2.0-2.5 tons/feddan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 1.5rem;">
+                                    <strong style="display: block; margin-bottom: 0.5rem; color: var(--gray-700);">Recommended Zones:</strong>
+                                    <p style="color: var(--gray-600);">Middle Egypt, Upper Egypt, New Lands</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Distinguishing Features -->
+                        <div style="margin-top: 2rem;">
+                            <div class="info-section">
+                                <h3>Distinguishing Features (DUS)</h3>
+                                <div class="info-grid">
+                                    <div>
+                                        <strong style="display: block; margin-bottom: 0.75rem; color: var(--gray-700);">Spike:</strong>
+                                        <div class="info-row">
+                                            <span class="info-label">Length:</span>
+                                            <span class="info-value">Long</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Color:</span>
+                                            <span class="info-value">White</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Awns:</span>
+                                            <span class="info-value">Awnless</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <strong style="display: block; margin-bottom: 0.75rem; color: var(--gray-700);">Grain:</strong>
+                                        <div class="info-row">
+                                            <span class="info-label">Color:</span>
+                                            <span class="info-value">Amber</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Hardness:</span>
+                                            <span class="info-value">Medium-hard</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Glume Color:</span>
+                                            <span class="info-value">White</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Special Traits -->
+                        <div style="margin-top: 2rem;">
+                            <div class="info-section">
+                                <h3>Special Traits</h3>
+                                <div class="traits-list">
+                                    <span class="trait-tag">✓ Moderate Drought Tolerance</span>
+                                    <span class="trait-tag">✓ Yellow Rust Resistant</span>
+                                    <span class="trait-tag">✓ Good Lodging Resistance</span>
+                                    <span class="trait-tag">✓ Suitable for Bread Making</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar">
+                <!-- Quick Actions -->
+                <div class="sidebar-card">
+                    <h3>Quick Actions</h3>
+                    <button class="action-btn action-btn-primary">⭐ Add to Favorites</button>
+                    <button class="action-btn action-btn-secondary">📊 Compare Variety</button>
+                    <button class="action-btn action-btn-secondary">📄 Download Bulletin</button>
+                    <button class="action-btn action-btn-secondary">📧 Request Sample</button>
+                </div>
+
+                <!-- Related Varieties -->
+                <div class="sidebar-card">
+                    <h3>Related Varieties</h3>
+                    <strong style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--gray-600);">Similar traits:</strong>
+                    <a href="#" class="related-item">→ Giza 168</a>
+                    <a href="#" class="related-item">→ Sakha 95</a>
+                    <a href="#" class="related-item">→ Sids 14</a>
+                    
+                    <strong style="display: block; margin: 1rem 0 0.5rem; font-size: 0.875rem; color: var(--gray-600);">Same breeder:</strong>
+                    <a href="#" class="related-item">→ Giza 186</a>
+                    <a href="#" class="related-item">→ Sakha 69</a>
+                </div>
+
+                <!-- User Reviews -->
+                <div class="sidebar-card">
+                    <h3>User Reviews</h3>
+                    <div class="rating">
+                        <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                        <div class="rating-score">4.8/5</div>
+                        <div class="rating-count">Based on 234 reviews</div>
+                    </div>
+                    <button class="action-btn action-btn-secondary" style="margin-top: 1rem;">Write a Review</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

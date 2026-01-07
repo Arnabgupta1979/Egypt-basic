@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKUP: Variety Catalogue - Egyptian Seed Sector Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --egypt-red: #C8102E;
+            --agri-green: #2D7A3E;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+        }
+        
+        /* MOCKUP WATERMARK */
+        body::before {
+            content: 'MOCKUP';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 10rem;
+            font-weight: 700;
+            color: rgba(200, 16, 46, 0.03);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--egypt-red);
+            margin-bottom: 2rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--egypt-red);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+        
+        /* Search Bar */
+        .search-bar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .search-input-wrapper {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--egypt-red);
+        }
+        
+        .search-btn {
+            padding: 0.75rem 2rem;
+            background: var(--egypt-red);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr 300px;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .sidebar h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .filter-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--egypt-red);
+        }
+        
+        .filter-count {
+            color: var(--gray-500);
+            margin-left: auto;
+        }
+        
+        .clear-filters {
+            width: 100%;
+            padding: 0.5rem;
+            background: transparent;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            color: var(--gray-700);
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        /* Results */
+        .results-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .results-info {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+        
+        .results-controls {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .control-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        /* Variety Grid */
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .variety-card {
+            border: 2px solid var(--gray-200);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .variety-card:hover {
+            border-color: var(--egypt-red);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .variety-image {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .variety-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+        
+        .variety-type {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+        
+        .variety-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+        }
+        
+        .info-label {
+            color: var(--gray-600);
+        }
+        
+        .info-value {
+            color: var(--gray-900);
+            font-weight: 500;
+        }
+        
+        .variety-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .trait-badge {
+            padding: 0.25rem 0.75rem;
+            background: rgba(45, 122, 62, 0.1);
+            color: var(--agri-green);
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .variety-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            color: var(--agri-green);
+            font-weight: 600;
+        }
+        
+        .variety-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: var(--egypt-red);
+            color: white;
+            border: none;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--egypt-red);
+            border: 2px solid var(--egypt-red);
+        }
+        
+        /* Right Sidebar */
+        .quick-actions {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .quick-actions h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        
+        .action-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            text-align: left;
+            transition: all 0.2s;
+        }
+        
+        .action-btn:hover {
+            background: var(--gray-200);
+        }
+        
+        .stats-box {
+            background: var(--gray-50);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stats-box h4 {
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-700);
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .page-btn.active {
+            background: var(--egypt-red);
+            color: white;
+            border-color: var(--egypt-red);
+        }
+        
+        @media (max-width: 1200px) {
+            .main-layout {
+                grid-template-columns: 250px 1fr;
+            }
+            .quick-actions {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+            .variety-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Egyptian Seed Portal</div>
+                <div class="breadcrumb">
+                    <span>Home</span> <span>›</span> <span>Variety Catalogue</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>National Variety Catalogue</h1>
+            <p>1,247 registered varieties | Last updated: January 6, 2026</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="Search by variety name, crop type, breeder...">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Left Sidebar - Filters -->
+            <aside class="sidebar">
+                <h3>Filters</h3>
+                
+                <div class="filter-group">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.5rem; color: var(--gray-700);">Crop Type</h4>
+                    <label class="filter-label">
+                        <input type="checkbox" checked>
+                        <span>Cereals</span>
+                        <span class="filter-count">(347)</span>
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>Vegetables</span>
+                        <span class="filter-count">(521)</span>
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>Legumes</span>
+                        <span class="filter-count">(156)</span>
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>Oilseeds</span>
+                        <span class="filter-count">(89)</span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.5rem; color: var(--gray-700);">Status</h4>
+                    <label class="filter-label">
+                        <input type="checkbox" checked>
+                        <span>Active</span>
+                        <span class="filter-count">(1,145)</span>
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>Archived</span>
+                        <span class="filter-count">(102)</span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.5rem; color: var(--gray-700);">Special Traits</h4>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>Drought tolerant</span>
+                        <span class="filter-count">(145)</span>
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>Disease resistant</span>
+                        <span class="filter-count">(267)</span>
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>COMESA registered</span>
+                        <span class="filter-count">(8)</span>
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox">
+                        <span>PVP protected</span>
+                        <span class="filter-count">(143)</span>
+                    </label>
+                </div>
+
+                <button class="clear-filters">Clear All Filters</button>
+            </aside>
+
+            <!-- Main Content - Results -->
+            <main class="results-section">
+                <div class="results-header">
+                    <div class="results-info">
+                        Showing <strong>1-20</strong> of <strong>347</strong> varieties
+                    </div>
+                    <div class="results-controls">
+                        <select class="control-select">
+                            <option>Sort by: Registration date</option>
+                            <option>Sort by: Name A-Z</option>
+                            <option>Sort by: Crop type</option>
+                        </select>
+                        <select class="control-select">
+                            <option>20 per page</option>
+                            <option>50 per page</option>
+                            <option>100 per page</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="variety-grid">
+                    <!-- Variety Card 1 -->
+                    <div class="variety-card">
+                        <div class="variety-image">🌾</div>
+                        <div class="variety-name">GIZA 171</div>
+                        <div class="variety-type">Bread Wheat (Triticum aestivum)</div>
+                        
+                        <div class="variety-info">
+                            <div class="info-row">
+                                <span class="info-label">Breeder:</span>
+                                <span class="info-value">ARC-FCRI</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Registered:</span>
+                                <span class="info-value">2015</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Maturity:</span>
+                                <span class="info-value">145-155 days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Yield:</span>
+                                <span class="info-value">3.0-3.5 t/fed</span>
+                            </div>
+                        </div>
+
+                        <div class="variety-traits">
+                            <span class="trait-badge">Drought tolerant</span>
+                            <span class="trait-badge">Rust resistant</span>
+                        </div>
+
+                        <div class="variety-status">✓ Seed Available</div>
+
+                        <div class="variety-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">⭐</button>
+                        </div>
+                    </div>
+
+                    <!-- Variety Card 2 -->
+                    <div class="variety-card">
+                        <div class="variety-image">🌾</div>
+                        <div class="variety-name">SAKHA 95</div>
+                        <div class="variety-type">Bread Wheat (Triticum aestivum)</div>
+                        
+                        <div class="variety-info">
+                            <div class="info-row">
+                                <span class="info-label">Breeder:</span>
+                                <span class="info-value">ARC-FCRI</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Registered:</span>
+                                <span class="info-value">2018</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Maturity:</span>
+                                <span class="info-value">150-160 days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Yield:</span>
+                                <span class="info-value">3.2-3.8 t/fed</span>
+                            </div>
+                        </div>
+
+                        <div class="variety-traits">
+                            <span class="trait-badge">High yield</span>
+                            <span class="trait-badge">Disease resistant</span>
+                        </div>
+
+                        <div class="variety-status">✓ Seed Available</div>
+
+                        <div class="variety-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">⭐</button>
+                        </div>
+                    </div>
+
+                    <!-- Variety Card 3 -->
+                    <div class="variety-card">
+                        <div class="variety-image">🌽</div>
+                        <div class="variety-name">HYTEC 2055</div>
+                        <div class="variety-type">Maize Hybrid (Zea mays)</div>
+                        
+                        <div class="variety-info">
+                            <div class="info-row">
+                                <span class="info-label">Breeder:</span>
+                                <span class="info-value">Hytech-seed</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Registered:</span>
+                                <span class="info-value">2020</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Maturity:</span>
+                                <span class="info-value">120-130 days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Yield:</span>
+                                <span class="info-value">4.5-5.0 t/fed</span>
+                            </div>
+                        </div>
+
+                        <div class="variety-traits">
+                            <span class="trait-badge">COMESA ✓</span>
+                            <span class="trait-badge">High yield</span>
+                        </div>
+
+                        <div class="variety-status">✓ Seed Available</div>
+
+                        <div class="variety-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">⭐</button>
+                        </div>
+                    </div>
+
+                    <!-- Variety Card 4 -->
+                    <div class="variety-card">
+                        <div class="variety-image">🌾</div>
+                        <div class="variety-name">GEMMEIZA 12</div>
+                        <div class="variety-type">Bread Wheat (Triticum aestivum)</div>
+                        
+                        <div class="variety-info">
+                            <div class="info-row">
+                                <span class="info-label">Breeder:</span>
+                                <span class="info-value">ARC-FCRI</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Registered:</span>
+                                <span class="info-value">2016</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Maturity:</span>
+                                <span class="info-value">140-150 days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Yield:</span>
+                                <span class="info-value">2.8-3.2 t/fed</span>
+                            </div>
+                        </div>
+
+                        <div class="variety-traits">
+                            <span class="trait-badge">Early maturity</span>
+                        </div>
+
+                        <div class="variety-status">✓ Seed Available</div>
+
+                        <div class="variety-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">⭐</button>
+                        </div>
+                    </div>
+
+                    <!-- Variety Card 5 -->
+                    <div class="variety-card">
+                        <div class="variety-image">🌾</div>
+                        <div class="variety-name">SIDS 14</div>
+                        <div class="variety-type">Bread Wheat (Triticum aestivum)</div>
+                        
+                        <div class="variety-info">
+                            <div class="info-row">
+                                <span class="info-label">Breeder:</span>
+                                <span class="info-value">ARC-FCRI</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Registered:</span>
+                                <span class="info-value">2019</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Maturity:</span>
+                                <span class="info-value">150-160 days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Yield:</span>
+                                <span class="info-value">3.1-3.6 t/fed</span>
+                            </div>
+                        </div>
+
+                        <div class="variety-traits">
+                            <span class="trait-badge">Drought tolerant</span>
+                            <span class="trait-badge">High quality</span>
+                        </div>
+
+                        <div class="variety-status">✓ Seed Available</div>
+
+                        <div class="variety-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">⭐</button>
+                        </div>
+                    </div>
+
+                    <!-- Variety Card 6 -->
+                    <div class="variety-card">
+                        <div class="variety-image">🌾</div>
+                        <div class="variety-name">MISR 3</div>
+                        <div class="variety-type">Bread Wheat (Triticum aestivum)</div>
+                        
+                        <div class="variety-info">
+                            <div class="info-row">
+                                <span class="info-label">Breeder:</span>
+                                <span class="info-value">ARC-FCRI</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Registered:</span>
+                                <span class="info-value">2017</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Maturity:</span>
+                                <span class="info-value">145-155 days</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Yield:</span>
+                                <span class="info-value">3.0-3.5 t/fed</span>
+                            </div>
+                        </div>
+
+                        <div class="variety-traits">
+                            <span class="trait-badge">Rust resistant</span>
+                        </div>
+
+                        <div class="variety-status">✓ Seed Available</div>
+
+                        <div class="variety-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">⭐</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn">← Previous</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">...</button>
+                    <button class="page-btn">18</button>
+                    <button class="page-btn">Next →</button>
+                </div>
+            </main>
+
+            <!-- Right Sidebar - Quick Actions -->
+            <aside class="quick-actions">
+                <h3>Quick Actions</h3>
+                <button class="action-btn">📊 Export Results as CSV</button>
+                <button class="action-btn">💾 Save This Search</button>
+                <button class="action-btn">🆕 Request New Variety</button>
+
+                <div class="stats-box">
+                    <h4>Statistics</h4>
+                    <div class="stat-item">
+                        <span>Total varieties:</span>
+                        <strong>1,247</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Added in 2025:</span>
+                        <strong>43</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Most registered:</span>
+                        <strong>Wheat</strong>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

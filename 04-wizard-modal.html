@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKUP: Q&A Wizard - Start a Seed Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --egypt-red: #C8102E;
+            --success: #10B981;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        /* Modal */
+        .modal {
+            background: white;
+            border-radius: 1rem;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: var(--gray-200);
+            color: var(--gray-900);
+        }
+        
+        /* Wizard Container */
+        .wizard-container {
+            padding: 3rem;
+        }
+        
+        /* Wizard Header */
+        .wizard-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .wizard-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .wizard-header h2 {
+            font-size: 2rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Progress Bar */
+        .wizard-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        .wizard-progress::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gray-200);
+            z-index: 0;
+        }
+        
+        .wizard-progress::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--egypt-red);
+            z-index: 0;
+            transition: width 0.3s;
+        }
+        
+        .wizard-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .wizard-step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray-200);
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .wizard-step.completed .wizard-step-circle {
+            background: var(--success);
+            color: white;
+        }
+        
+        .wizard-step.active .wizard-step-circle {
+            background: var(--egypt-red);
+            color: white;
+            box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.2);
+        }
+        
+        .wizard-step-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-align: center;
+            max-width: 100px;
+        }
+        
+        .wizard-step.active .wizard-step-label {
+            color: var(--egypt-red);
+            font-weight: 600;
+        }
+        
+        /* Wizard Content */
+        .wizard-content {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        
+        .wizard-question h3 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+        
+        .wizard-question h2 {
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin-bottom: 2rem;
+        }
+        
+        /* Options */
+        .wizard-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .wizard-option {
+            border: 2px solid var(--gray-200);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            background: white;
+        }
+        
+        .wizard-option:hover {
+            border-color: var(--egypt-red);
+            background: rgba(200, 16, 46, 0.02);
+            transform: translateX(4px);
+        }
+        
+        .wizard-option.selected {
+            border-color: var(--egypt-red);
+            background: rgba(200, 16, 46, 0.05);
+            box-shadow: 0 0 0 1px var(--egypt-red);
+        }
+        
+        .wizard-option input[type="radio"] {
+            width: 24px;
+            height: 24px;
+            accent-color: var(--egypt-red);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        
+        .wizard-option-content {
+            flex: 1;
+        }
+        
+        .wizard-option-title {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+            font-size: 1.125rem;
+        }
+        
+        .wizard-option-description {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        /* Actions */
+        .wizard-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-outline {
+            background: white;
+            color: var(--gray-700);
+            border: 2px solid var(--gray-300);
+        }
+        
+        .btn-outline:hover:not(:disabled) {
+            border-color: var(--gray-400);
+            background: var(--gray-50);
+        }
+        
+        .btn-outline:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .btn-primary {
+            background: var(--egypt-red);
+            color: white;
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            background: #A00D25;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Mockup Note */
+        .mockup-note {
+            background: #FEF3C7;
+            border: 2px solid #F59E0B;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #92400E;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .wizard-container {
+                padding: 2rem 1.5rem;
+            }
+            .wizard-progress {
+                padding: 0 1rem;
+            }
+            .wizard-step-label {
+                font-size: 0.625rem;
+                max-width: 60px;
+            }
+            .wizard-step-circle {
+                width: 32px;
+                height: 32px;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <button class="modal-close">×</button>
+        
+        <div class="wizard-container">
+            <div class="mockup-note">
+                📱 INTERACTIVE MOCKUP - Click options to see selection behavior
+            </div>
+            
+            <!-- Wizard Header -->
+            <div class="wizard-header">
+                <div class="wizard-icon">🏢</div>
+                <h2>Start a Seed Business</h2>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="wizard-progress">
+                <div class="wizard-step completed">
+                    <div class="wizard-step-circle">✓</div>
+                    <div class="wizard-step-label">Step 1</div>
+                </div>
+                <div class="wizard-step active">
+                    <div class="wizard-step-circle">2</div>
+                    <div class="wizard-step-label">Step 2</div>
+                </div>
+                <div class="wizard-step">
+                    <div class="wizard-step-circle">3</div>
+                    <div class="wizard-step-label">Step 3</div>
+                </div>
+            </div>
+            
+            <!-- Wizard Content -->
+            <div class="wizard-content">
+                <div class="wizard-question">
+                    <h3>Step 2 of 3</h3>
+                    <h2>What is your background?</h2>
+                </div>
+                
+                <div class="wizard-options">
+                    <div class="wizard-option" onclick="selectOption(this)">
+                        <input type="radio" name="wizard-option" value="egyptian" id="option-1">
+                        <div class="wizard-option-content">
+                            <div class="wizard-option-title">Egyptian citizen/resident</div>
+                            <div class="wizard-option-description">
+                                Individual or entity based in Egypt with full rights to establish businesses
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wizard-option selected" onclick="selectOption(this)">
+                        <input type="radio" name="wizard-option" value="foreign" id="option-2" checked>
+                        <div class="wizard-option-content">
+                            <div class="wizard-option-title">Foreign investor</div>
+                            <div class="wizard-option-description">
+                                International company or individual looking to invest in Egypt's seed sector. Special considerations apply for land ownership.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wizard-option" onclick="selectOption(this)">
+                        <input type="radio" name="wizard-option" value="existing" id="option-3">
+                        <div class="wizard-option-content">
+                            <div class="wizard-option-title">Existing agricultural business</div>
+                            <div class="wizard-option-description">
+                                Currently operating in agriculture and expanding into the seed sector
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wizard-option" onclick="selectOption(this)">
+                        <input type="radio" name="wizard-option" value="entrepreneur" id="option-4">
+                        <div class="wizard-option-content">
+                            <div class="wizard-option-title">New entrepreneur</div>
+                            <div class="wizard-option-description">
+                                Starting your first business venture in the agricultural sector
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="wizard-actions">
+                <button class="btn btn-outline">← Back</button>
+                <button class="btn btn-primary">Next →</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function selectOption(element) {
+            // Remove selected class from all options
+            document.querySelectorAll('.wizard-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Check the radio button
+            const radio = element.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian Seed Sector Portal - Mockup Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #C8102E 0%, #A00D25 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            color: #C8102E;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #6B7280;
+            font-size: 1.125rem;
+        }
+        
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .mockup-card {
+            border: 2px solid #E5E7EB;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mockup-card:hover {
+            border-color: #C8102E;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(200, 16, 46, 0.1);
+        }
+        
+        .mockup-number {
+            width: 40px;
+            height: 40px;
+            background: #C8102E;
+            color: white;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mockup-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mockup-description {
+            color: #6B7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .mockup-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #C8102E;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .info-box {
+            background: #F0F9FF;
+            border: 2px solid #3B82F6;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-box h3 {
+            color: #1E40AF;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .info-box p {
+            color: #1E40AF;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .info-box ul {
+            margin-top: 0.5rem;
+            margin-left: 1.5rem;
+            color: #1E40AF;
+            font-size: 0.875rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 2px solid #E5E7EB;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .mockup-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌾</div>
+            <h1>Egyptian Seed Sector Portal</h1>
+            <p class="subtitle">Design Mockups - January 2026</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>📱 How to Use These Mockups</h3>
+            <p>Click on any mockup below to open it in full screen. These are interactive mockups showing the complete design and user experience for the portal.</p>
+            <ul>
+                <li>All mockups are fully responsive (try resizing your browser)</li>
+                <li>Some elements are clickable for demonstration purposes</li>
+                <li>Designed for desktop, tablet, and mobile devices</li>
+            </ul>
+        </div>
+        
+        <div class="mockup-grid">
+            <a href="01-homepage.html" class="mockup-card">
+                <div class="mockup-number">1</div>
+                <div class="mockup-title">Homepage</div>
+                <p class="mockup-description">
+                    Complete landing page with hero section, 6 pathway cards, live statistics, featured resources, and news updates.
+                </p>
+                <span class="mockup-link">View Mockup →</span>
+            </a>
+            
+            <a href="02-variety-catalogue.html" class="mockup-card">
+                <div class="mockup-number">2</div>
+                <div class="mockup-title">Variety Catalogue</div>
+                <p class="mockup-description">
+                    Searchable database with advanced filters, variety cards showing key information, and pagination.
+                </p>
+                <span class="mockup-link">View Mockup →</span>
+            </a>
+            
+            <a href="03-variety-detail.html" class="mockup-card">
+                <div class="mockup-number">3</div>
+                <div class="mockup-title">Variety Detail</div>
+                <p class="mockup-description">
+                    Comprehensive variety page (Giza 171 wheat) with tabs, image gallery, agronomic data, and related varieties.
+                </p>
+                <span class="mockup-link">View Mockup →</span>
+            </a>
+            
+            <a href="04-wizard-modal.html" class="mockup-card">
+                <div class="mockup-number">4</div>
+                <div class="mockup-title">Q&A Wizard</div>
+                <p class="mockup-description">
+                    Interactive question & answer system for "Start a Seed Business" with progress tracking and option selection.
+                </p>
+                <span class="mockup-link">View Mockup →</span>
+            </a>
+            
+            <a href="05-procedure-detail.html" class="mockup-card">
+                <div class="mockup-number">5</div>
+                <div class="mockup-title">Procedure Guide</div>
+                <p class="mockup-description">
+                    Step-by-step guide for variety registration with expandable accordion, timeline, and contact information.
+                </p>
+                <span class="mockup-link">View Mockup →</span>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Ministry of Agriculture and Land Reclamation</strong></p>
+            <p>Portal developed in collaboration with Wageningen University & Research</p>
+            <p style="margin-top: 1rem;">For design review and stakeholder presentation</p>
+        </div>
+    </div>
+</body>
+</html>
