@@ -3,234 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egyptian Seed Sector Portal - Mockup Index</title>
+    <title>Seed Sector Portal | Design Review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1e3a3a; /* Deep Seed-Green */
+            --accent: #d4af37;  /* Institutional Gold */
+            --text-main: #1f2937;
+            --text-muted: #64748b;
+            --bg-gradient: radial-gradient(circle at top right, #f8fafc, #e2e8f0);
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --border: rgba(226, 232, 240, 0.8);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #007C9E 0%, #A00D25 100%);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            padding: 4rem 1rem;
+            line-height: 1.6;
         }
-        
+
+        /* Subtle background pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a3a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
         .container {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 3rem;
-            max-width: 900px;
+            max-width: 1100px;
             width: 100%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
-        
+
+        /* --- Header Section --- */
         .header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CSS Stylized Icon replacing the emoji */
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 58, 0.3);
         }
         
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+        .logo-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--accent);
         }
-        
+
         h1 {
-            color: #007C9E;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--primary);
+            text-transform: uppercase;
         }
-        
+
         .subtitle {
-            color: #6B7280;
-            font-size: 1.125rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 0.5rem;
         }
-        
+
+        /* --- Guidance Box --- */
+        .instruction-bar {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .instruction-bar span {
+            background: #f1f5f9;
+            padding: 0.75rem;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .instruction-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .instruction-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Mockup Grid --- */
         .mockup-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
         }
-        
-        .mockup-card {
-            border: 2px solid #E5E7EB;
-            border-radius: 1rem;
-            padding: 1.5rem;
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 2rem;
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
-        
-        .mockup-card:hover {
-            border-color: #007C9E;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(200, 16, 46, 0.1);
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        
-        .mockup-number {
-            width: 40px;
-            height: 40px;
-            background: #007C9E;
-            color: white;
-            border-radius: 0.5rem;
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-meta {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
+            justify-content: space-between;
+        }
+
+        .card-title {
             font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
         }
-        
-        .mockup-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 0.5rem;
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
-        
-        .mockup-description {
-            color: #6B7280;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            flex: 1;
-        }
-        
-        .mockup-link {
+
+        .card-action {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #007C9E;
+            font-size: 0.875rem;
             font-weight: 600;
-            margin-top: 1rem;
-            font-size: 0.875rem;
+            color: var(--primary);
         }
-        
-        .info-box {
-            background: #F0F9FF;
-            border: 2px solid #3B82F6;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+
+        .card-action svg {
+            width: 16px;
+            transition: transform 0.3s;
         }
-        
-        .info-box h3 {
-            color: #1E40AF;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
+
+        .card:hover .card-action svg {
+            transform: translateX(5px);
         }
-        
-        .info-box p {
-            color: #1E40AF;
-            font-size: 0.875rem;
-            line-height: 1.6;
-        }
-        
-        .info-box ul {
-            margin-top: 0.5rem;
-            margin-left: 1.5rem;
-            color: #1E40AF;
-            font-size: 0.875rem;
-        }
-        
+
+        /* --- Footer --- */
         .footer {
+            margin-top: 6rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding-top: 2rem;
-            border-top: 2px solid #E5E7EB;
-            color: #6B7280;
-            font-size: 0.875rem;
         }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 2rem;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
-            .mockup-grid {
-                grid-template-columns: 1fr;
-            }
+
+        .footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer .collab {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 640px) {
+            body { padding: 2rem 1rem; }
+            h1 { font-size: 1.75rem; }
+            .instruction-bar { flex-direction: column; align-items: center; text-align: center; }
+            .mockup-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="header">
-            <div class="logo">🌾</div>
-            <h1>Egyptian Seed Sector Portal</h1>
-            <p class="subtitle">Design Mockups - January 2026</p>
-        </div>
-        
-        <div class="info-box">
-            <h3>📱 How to Use These Mockups</h3>
-            <p>Click on any mockup below to open it in full screen. These are interactive mockups showing the complete design and user experience for the portal.</p>
-            <ul>
-                <li>All mockups are fully responsive (try resizing your browser)</li>
-                <li>Some elements are clickable for demonstration purposes</li>
-                <li>Designed for desktop, tablet, and mobile devices</li>
-            </ul>
-        </div>
-        
-        <div class="mockup-grid">
-            <a href="01-homepage.html" class="mockup-card">
-                <div class="mockup-number">1</div>
-                <div class="mockup-title">Homepage</div>
-                <p class="mockup-description">
-                    Complete landing page with hero section, 6 pathway cards, live statistics, featured resources, and news updates.
-                </p>
-                <span class="mockup-link">View Mockup →</span>
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12,22C12,22 4,16 4,12C4,8 7,5 12,2C17,5 20,8 20,12C20,16 12,22 12,22M12,18C13.5,16.5 17,13.5 17,11.5C17,9.5 15,8.5 12,6.5C9,8.5 7,9.5 7,11.5C7,13.5 10.5,16.5 12,18Z"/></svg>
+                </div>
+                <h1>Seed Sector Portal</h1>
+            </div>
+            <p class="subtitle">Stakeholder Review & Methodology Validation</p>
+        </header>
+
+        <section class="instruction-bar">
+            <span>📱</span>
+            <div class="instruction-content">
+                <h3>Interface Testing Protocol</h3>
+                <p>Select a module to review interaction flows. All mockups are optimized for high-density displays and cross-device responsiveness.</p>
+            </div>
+        </section>
+
+        <main class="mockup-grid">
+            <a href="01-homepage.html" class="card">
+                <div class="card-meta">Module 01 <span>Standard</span></div>
+                <h2 class="card-title">Institutional Homepage</h2>
+                <p class="card-desc">Comprehensive entry point featuring sectoral pathways, live registration metrics, and regulatory updates.</p>
+                <div class="card-action">
+                    Review Interface
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
             </a>
-            
-            <a href="02-variety-catalogue.html" class="mockup-card">
-                <div class="mockup-number">2</div>
-                <div class="mockup-title">Variety Catalogue</div>
-                <p class="mockup-description">
-                    Searchable database with advanced filters, variety cards showing key information, and pagination.
-                </p>
-                <span class="mockup-link">View Mockup →</span>
+
+            <a href="02-variety-catalogue.html" class="card">
+                <div class="card-meta">Module 02 <span>Data-Heavy</span></div>
+                <h2 class="card-title">National Variety Catalogue</h2>
+                <p class="card-desc">Advanced search and filtering architecture for seed genetics database. Validates UI performance with large datasets.</p>
+                <div class="card-action">
+                    Review Interface
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
             </a>
-            
-            <a href="03-variety-detail.html" class="mockup-card">
-                <div class="mockup-number">3</div>
-                <div class="mockup-title">Variety Detail</div>
-                <p class="mockup-description">
-                    Comprehensive variety page (Giza 171 wheat) with tabs, image gallery, agronomic data, and related varieties.
-                </p>
-                <span class="mockup-link">View Mockup →</span>
+
+            <a href="03-variety-detail.html" class="card">
+                <div class="card-meta">Module 03 <span>Technical</span></div>
+                <h2 class="card-title">Variety Specification Page</h2>
+                <p class="card-desc">Detailed agronomic profiles (e.g., Giza 171) showcasing tabbed technical data and trial performance visualization.</p>
+                <div class="card-action">
+                    Review Interface
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
             </a>
-            
-            <a href="04-wizard-modal.html" class="mockup-card">
-                <div class="mockup-number">4</div>
-                <div class="mockup-title">Q&A Wizard</div>
-                <p class="mockup-description">
-                    Interactive question & answer system for "Start a Seed Business" with progress tracking and option selection.
-                </p>
-                <span class="mockup-link">View Mockup →</span>
+
+            <a href="04-wizard-modal.html" class="card">
+                <div class="card-meta">Module 04 <span>UX Logic</span></div>
+                <h2 class="card-title">Registration Wizard</h2>
+                <p class="card-desc">Step-by-step logic gate system for new business entities. Focuses on minimizing user friction during data entry.</p>
+                <div class="card-action">
+                    Review Interface
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
             </a>
-            
-            <a href="05-procedure-detail.html" class="mockup-card">
-                <div class="mockup-number">5</div>
-                <div class="mockup-title">Procedure Guide</div>
-                <p class="mockup-description">
-                    Step-by-step guide for variety registration with expandable accordion, timeline, and contact information.
-                </p>
-                <span class="mockup-link">View Mockup →</span>
+
+            <a href="05-procedure-detail.html" class="card">
+                <div class="card-meta">Module 05 <span>Procedural</span></div>
+                <h2 class="card-title">Regulatory Procedure Guide</h2>
+                <p class="card-desc">Interactive timeline and checklist for legal compliance. Bridges the gap between law and practical implementation.</p>
+                <div class="card-action">
+                    Review Interface
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
             </a>
-        </div>
-        
-        <div class="footer">
+        </main>
+
+        <footer class="footer">
             <p><strong>Ministry of Agriculture and Land Reclamation</strong></p>
-            <p>Portal developed in collaboration with Wageningen University & Research</p>
-            <p style="margin-top: 1rem;">For design review and stakeholder presentation</p>
-        </div>
+            <p>Technically supported by <span class="collab">Wageningen University & Research (WUR)</span></p>
+            <p>© 2026 Arab Republic of Egypt. For Official Review Only.</p>
+        </footer>
     </div>
+
 </body>
 </html>
